@@ -1,0 +1,43 @@
+{
+  "apiVersion": "apps/v1beta2",
+  "kind": "Deployment",
+  "metadata": {
+    "labels": {
+      "app": "codecamp-board"
+    },
+    "name": "codecamp-board-deployment"
+  },
+  "spec": {
+    "replicas": 1,
+    "selector": {
+      "matchLabels": {
+        "app": "codecamp-board"
+      }
+    },
+    "template": {
+      "metadata": {
+        "labels": {
+          "app": "codecamp-board"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "command": [
+              "npm",
+              "start"
+            ],
+            "image": "#{image}",
+            "name": "codecamp-board",
+            "ports": [
+              {
+                "containerPort": 8080,
+                "protocol": "TCP"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

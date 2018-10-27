@@ -1,0 +1,28 @@
+{
+  "apiVersion": "extensions/v1beta1",
+  "kind": "Ingress",
+  "metadata": {
+    "name": "codecamp-board-ingress"
+  },
+  "spec": {
+    "backend": {
+      "serviceName": "codecamp-board-service",
+      "servicePort": 8080
+    },
+    "rules": [
+      {
+        "http": {
+          "paths": [
+            {
+              "backend": {
+                "serviceName": "codecamp-board-service",
+                "servicePort": 8080
+              },
+              "path": "/codecamp-board"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
